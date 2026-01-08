@@ -1,9 +1,15 @@
 'use client';
+import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { defineCustomElements } from '@arcgis/map-components/dist/loader';
 
 const ArcgisMap = dynamic(() => import('@arcgis/map-components-react').then(mod => mod.ArcgisMap), { ssr: false });
 
 export default function Gis() {
+  useEffect(() => {
+    defineCustomElements(window);
+  }, []);
+
   return (
     <div>
       <h1>GIS Overlay Example</h1>
