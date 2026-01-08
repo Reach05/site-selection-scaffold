@@ -1,5 +1,7 @@
 'use client';
-import { ArcgisMap } from '@arcgis/map-components-react';
+import dynamic from 'next/dynamic';
+
+const ArcgisMap = dynamic(() => import('@arcgis/map-components-react').then(mod => mod.ArcgisMap), { ssr: false });
 
 export default function Gis() {
   return (
