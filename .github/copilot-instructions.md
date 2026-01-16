@@ -5,11 +5,11 @@ Purpose: give AI coding agents the minimal, concrete knowledge to make safe, use
 - **Big picture:** This is a small Next.js scaffold that demonstrates an ArcGIS/ESRI map overlay using `@arcgis/map-components-react`. The app is server-rendered by Next.js with client-only map components loaded dynamically on the `pages/gis.js` page.
 
 - **Key files to check first:**
-  - [README.md](README.md) — project overview and deploy notes
-  - [package.json](package.json) — `dev`, `build`, `start` scripts
-  - [next.config.js](next.config.js) — Next.js configuration
-  - [pages/index.js](pages/index.js) and [pages/gis.js](pages/gis.js) — examples of routing and ArcGIS integration
-  - [.github/workflows/ci.yml](.github/workflows/ci.yml) — CI runs `npm install` and `npm run build`
+  - [README.md](../README.md) — project overview and deploy notes
+  - [package.json](../package.json) — `dev`, `build`, `start` scripts
+  - [next.config.js](../next.config.js) — Next.js configuration
+  - [pages/index.js](../pages/index.js) and [pages/gis.js](../pages/gis.js) — examples of routing and ArcGIS integration
+  - [.github/workflows/ci.yml](workflows/ci.yml) — CI runs `npm install` and `npm run build`
 
 - **Architecture & patterns (what to preserve):**
   - `pages/gis.js` uses client-only components: it declares `"use client"`, dynamically imports `ArcgisMap` with `ssr: false`, and calls `defineCustomElements(window)` via a loader import inside `useEffect`. Any change touching the ArcGIS component must preserve the client-only dynamic-import pattern to avoid SSR errors.
@@ -20,7 +20,7 @@ Purpose: give AI coding agents the minimal, concrete knowledge to make safe, use
   - Local dev: `npm run dev` (app at http://localhost:3000)
   - Build: `npm run build`
   - Start (production): `npm run start`
-  - CI: GitHub Actions runs Node 16.x and executes `npm install` then `npm run build` (see [.github/workflows/ci.yml](.github/workflows/ci.yml)).
+  - CI: GitHub Actions runs Node 16.x and executes `npm install` then `npm run build` (see [.github/workflows/ci.yml](workflows/ci.yml)).
 
 - **Patterns for edits and PRs:**
   - When adding packages, update `package.json` and ensure `npm run build` succeeds locally before opening a PR.
