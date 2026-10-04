@@ -8,9 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "@arcgis/map-components-react": "latest"
+    "@arcgis/map-components-react": "5.1.26",
+    "next": "16.1.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   }
 }
